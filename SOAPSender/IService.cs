@@ -18,6 +18,7 @@ namespace SOAPSender
     {
         public string GetData(int value)
         {
+            Console.WriteLine("Received value");
             return string.Format("You entered: {0}", value);
         }
 
