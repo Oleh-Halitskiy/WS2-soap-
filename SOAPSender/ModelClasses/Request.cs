@@ -1,4 +1,4 @@
-﻿namespace WS1.ModelClasses
+﻿namespace ModelClasses
 {
     /// <summary>
     /// Class representing Request model

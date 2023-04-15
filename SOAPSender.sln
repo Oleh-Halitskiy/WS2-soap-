@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPSender", "SOAPSender\SOAPSender.csproj", "{ACD11CE9-75F5-463A-9AC7-9FB346A4A65C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPConsumer", "SOAPConsumer\SOAPConsumer.csproj", "{C8B294B0-C4A6-4B08-B610-F37C14E14F84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ACD11CE9-75F5-463A-9AC7-9FB346A4A65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACD11CE9-75F5-463A-9AC7-9FB346A4A65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACD11CE9-75F5-463A-9AC7-9FB346A4A65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B294B0-C4A6-4B08-B610-F37C14E14F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B294B0-C4A6-4B08-B610-F37C14E14F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B294B0-C4A6-4B08-B610-F37C14E14F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B294B0-C4A6-4B08-B610-F37C14E14F84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,6 @@
-﻿using WS1.DataUtils;
-using WS1.Enums;
+﻿using Enums;
 
-namespace WS1.ModelClasses
+namespace ModelClasses
 {
     /// <summary>
     /// Class representing Solider model
@@ -61,18 +60,14 @@ namespace WS1.ModelClasses
         /// </summary>
         public void EnterBase()
         {
-            DataAccess da = new DataAccess();
-            var logString = $"Solider {id} entered the base {baseId}";
-            da.SaveData("dbo.spELogs_Insert", new { log = logString, date = DateTime.Now});
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Sends the log to the database that solider is left the base
         /// </summary>
         public void LeaveBase()
         {
-            DataAccess da = new DataAccess();
-            var logString = $"Solider {id} left the base {baseId}";
-            da.SaveData("dbo.spELogs_Insert", new { log = logString, date = DateTime.Now });
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Converts the Solider to the string representation

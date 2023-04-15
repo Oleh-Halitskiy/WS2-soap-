@@ -1,6 +1,4 @@
-﻿using WS1.DataUtils;
-
-namespace WS1.ModelClasses
+﻿namespace ModelClasses
 {
     /// <summary>
     /// Class representing MilitaryBase model
@@ -70,8 +68,7 @@ namespace WS1.ModelClasses
         /// <param name="reason">String representation of reason</param>
         public void RequestEquipement(string reqItem, string reason)
         {
-            DataAccess da = new DataAccess();
-            da.SaveData("dbo.spReq_Insert", new { reqItem, reason, reqDate = DateTime.Now });
+            throw new NotImplementedException();
         }
     }
 }
