@@ -57,6 +57,9 @@ namespace TestRef1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetBaseByID", ReplyAction="http://tempuri.org/IService/GetBaseByIDResponse")]
+        System.Threading.Tasks.Task<string> GetBaseByIDAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<TestRef1.CompositeType> GetDataUsingDataContractAsync(TestRef1.CompositeType composite);
     }
@@ -107,6 +110,11 @@ namespace TestRef1
         public System.Threading.Tasks.Task<string> GetDataAsync(int value)
         {
             return base.Channel.GetDataAsync(value);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetBaseByIDAsync(int id)
+        {
+            return base.Channel.GetBaseByIDAsync(id);
         }
         
         public System.Threading.Tasks.Task<TestRef1.CompositeType> GetDataUsingDataContractAsync(TestRef1.CompositeType composite)

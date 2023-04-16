@@ -1,6 +1,8 @@
 ﻿using CoreWCF;
+using SOAPSender.Mocks;
 using System;
 using System.Runtime.Serialization;
+using WS1.XMLTools;
 
 namespace SOAPSender
 {
@@ -9,6 +11,8 @@ namespace SOAPSender
     {
         [OperationContract]
         string GetData(int value);
+        [OperationContract]
+        string GetBaseByID(int id);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
@@ -20,6 +24,14 @@ namespace SOAPSender
         {
             Console.WriteLine("Received value");
             return string.Format("You entered: {0}", value);
+        }
+
+        public string GetBaseByID(int id)
+        {
+            var mb = DatabaseMock.GetBaseByID(id);
+            XMLSerializer serializer = new XMLSerializer();
+            serializer.SerializeObject(mb, @"C:\jsonTest\WS2\mb.xml");
+            return Utils.FileManager.SelectFile(@"C:\jsonTest\WS2\mb.xml");
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
