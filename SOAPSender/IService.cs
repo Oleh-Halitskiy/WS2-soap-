@@ -15,6 +15,9 @@ namespace SOAPSender
         string GetBaseByID(int id);
 
         [OperationContract]
+        string TestIDbase(int id);
+
+        [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
     }
 
@@ -32,6 +35,11 @@ namespace SOAPSender
             XMLSerializer serializer = new XMLSerializer();
             serializer.SerializeObject(mb, @"C:\jsonTest\WS2\mb.xml");
             return Utils.FileManager.SelectFile(@"C:\jsonTest\WS2\mb.xml");
+        }
+
+        public string TestIDbase(int id)
+        {
+            return id.ToString();
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
