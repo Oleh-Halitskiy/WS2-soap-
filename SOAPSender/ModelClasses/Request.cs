@@ -1,4 +1,4 @@
-﻿namespace ModelClasses
+﻿namespace SOAPSender.ModelClasses
 {
     /// <summary>
     /// Class representing Request model

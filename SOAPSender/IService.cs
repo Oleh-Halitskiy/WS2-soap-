@@ -2,7 +2,7 @@
 using SOAPSender.Mocks;
 using System;
 using System.Runtime.Serialization;
-using WS1.XMLTools;
+using XMLTools;
 
 namespace SOAPSender
 {

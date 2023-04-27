@@ -1,4 +1,4 @@
-﻿using ModelClasses;
+﻿using SOAPSender.ModelClasses;
 using System.Reflection.Metadata.Ecma335;
 using System.Linq;
 

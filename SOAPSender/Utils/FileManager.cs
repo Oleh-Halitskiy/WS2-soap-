@@ -1,4 +1,4 @@
-﻿namespace Utils
+﻿namespace SOAPSender.Utils
 {
     /// <summary>
     /// File manager class for selecting and saving files

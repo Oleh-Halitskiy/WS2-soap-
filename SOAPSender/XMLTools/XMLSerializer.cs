@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using System.Xml.Serialization;
 
-namespace WS1.XMLTools
+namespace XMLTools
 {
     /// <summary>
     /// Represents the wrapper for System.Xml.Serialization

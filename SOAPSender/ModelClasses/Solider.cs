@@ -1,6 +1,6 @@
-﻿using Enums;
+﻿using SOAPSender.Enums;
 
-namespace ModelClasses
+namespace SOAPSender.ModelClasses
 {
     /// <summary>
     /// Class representing Solider model

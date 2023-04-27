@@ -3,8 +3,17 @@ using System.Xml;
 
 namespace SOAPSender.XMLTools
 {
+    /// <summary>
+    /// Class that represent support for XML transformation to HTML using XSL
+    /// </summary>
     public class XMLtoHTMLConverter
     {
+        /// <summary>
+        /// Trnasforms XML to the HTML file using XSL transformation
+        /// </summary>
+        /// <param name="inputXmlPath">Path to the XML file</param>
+        /// <param name="xsltStringPath">Path to the XSL file</param>
+        /// <returns>Returns string of whole HTML file, also </returns>
         public static string TransformXMLToHTML(string inputXmlPath, string xsltStringPath)
         {
             string inputXml;
@@ -26,10 +35,6 @@ namespace SOAPSender.XMLTools
             using (XmlReader reader = XmlReader.Create(new StringReader(inputXml)))
             {
                 transform.Transform(reader, null, results);
-            }
-            using (StreamWriter sw = new StreamWriter(@"C:\jsonTest\Assets\final.html"))
-            {
-                sw.WriteLine(results.ToString());
             }
             return results.ToString();
         }

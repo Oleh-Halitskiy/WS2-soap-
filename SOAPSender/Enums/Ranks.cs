@@ -1,4 +1,4 @@
-﻿namespace Enums
+﻿namespace SOAPSender.Enums
 {
     /// <summary>
     /// Represent enum for Soliders ranks'

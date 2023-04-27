@@ -1,5 +1,4 @@
-﻿using ModelClasses;
-using SOAPSender;
+﻿using SOAPSender;
 using System.Xml.Xsl;
 using System.Xml;
 using TestRef1;
