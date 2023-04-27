@@ -1,5 +1,7 @@
 ﻿using ModelClasses;
 using SOAPSender;
+using System.Xml.Xsl;
+using System.Xml;
 using TestRef1;
 
 namespace SOAPConsumer
@@ -14,25 +16,31 @@ namespace SOAPConsumer
             //Console.WriteLine(test);
 
             ///
+            /// PDF DEMO
             ///
+            //string dataDir = @"C:\jsonTest\testing\";
+            ////Create pdf document
+            //Aspose.Pdf.Document pdf = new Aspose.Pdf.Document();
+            ////Bind XML and XSLT files to the document
+            //try
+            //{
+            //    pdf.BindXml(dataDir + "\\mb.xml", dataDir + "\\mb1.xslt");
+            //}
+            //catch (System.Exception)
+            //{
+
+            //    throw;
+            //}
+
+            ////Save the document
+            //pdf.Save(dataDir + "result.pdf");
+
+
             ///
-            string dataDir = @"C:\jsonTest\testing\";
-            //Create pdf document
-            Aspose.Pdf.Document pdf = new Aspose.Pdf.Document();
-            //Bind XML and XSLT files to the document
-            try
-            {
-                pdf.BindXml(dataDir + "\\mb.xml", dataDir + "\\mb1.xslt");
-            }
-            catch (System.Exception)
-            {
+            /// HTML demo
+            ///
 
-                throw;
-            }
-
-            //Save the document
-            pdf.Save(dataDir + "result.pdf");
-
+            Console.WriteLine(SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\mb.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
             Console.ReadKey();
         }
     }
