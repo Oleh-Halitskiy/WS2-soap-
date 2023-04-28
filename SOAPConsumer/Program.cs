@@ -1,7 +1,8 @@
 ﻿using SOAPSender;
 using System.Xml.Xsl;
 using System.Xml;
-using TestRef1;
+// using TestRef1;
+using SOAPReference;
 using SOAPSender.Utils;
 using System.Diagnostics;
 
@@ -12,12 +13,24 @@ namespace SOAPConsumer
         static async Task Main(string[] args)
         {
             string dataDir = @"C:\jsonTest\Assets\";
+            string receivedString = "";
             var client = new ServiceClient(ServiceClient.EndpointConfiguration.WSHttpBinding_IService, "https://localhost:5001/Service/WSHttps");
-            Console.Write("Please enter base ID to get report: ");
+            Console.WriteLine("Select military base by ID or by captain name?\n1.By ID\n2.By captain name\n");
             string input = Console.ReadLine();
-            string test = await client.GetBaseByIDAsync(Convert.ToInt32(input));
-            Console.WriteLine(test);
-            FileManager.SaveFile(dataDir + "final.xml", test);
+            if (input == "1")
+            {
+                Console.Write("Please enter base ID to get report: ");
+                input = Console.ReadLine();
+                receivedString = await client.GetBaseByIDAsync(Convert.ToInt32(input));
+            }
+            else if (input == "2")
+            {
+                Console.Write("Please enter base captain name to get report: ");
+                input = Console.ReadLine();
+                receivedString = await client.GetBaseByCPTNameAsync(input);
+            }
+            Console.WriteLine(receivedString);
+            FileManager.SaveFile(dataDir + "final.xml", receivedString);
             ///
             /// PDF DEMO
             ///
@@ -42,7 +55,7 @@ namespace SOAPConsumer
             /// HTML demo
             ///
 
-            FileManager.SaveFile(dataDir + "final.html", SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\mb.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
+            FileManager.SaveFile(dataDir + "final.html", SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\final.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
             Console.ReadKey();
             new Process
             {
