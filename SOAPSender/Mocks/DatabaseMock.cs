@@ -16,16 +16,26 @@ namespace SOAPSender.Mocks
         private static void MockDB()
         {
             Solider sol1 = new Solider(1, "Oleh", "Halytskyi", Enums.Rank.Major);
+            sol1.Id = 0;
             Solider sol2 = new Solider(1, "Ihor", "Haly", Enums.Rank.Captain);
+            sol2.Id = 1;
             Solider sol3 = new Solider(1, "Jake", "Meoff", Enums.Rank.Private);
+            sol3.Id = 2;
             Solider sol4 = new Solider(1, "Jacks", "Bee", Enums.Rank.Sergeant);
+            sol4.Id = 3;
             Solider sol5 = new Solider(1, "SSee", "Shard", Enums.Rank.Major);
+            sol5.Id = 4;
 
             Vehicle vehicle1 = new Vehicle(1, "Leopard 2 A7", 228, sol1);
+            vehicle1.Id = 0;
             Vehicle vehicle2 = new Vehicle(1, "Leopard 1 A6", 2222, sol2);
+            vehicle2.Id = 1;
             Vehicle vehicle3 = new Vehicle(1, "Leopard 3 A5", 345, sol3);
+            vehicle3.Id = 2;
             Vehicle vehicle4 = new Vehicle(1, "Leopard 87 A4", 244, sol4);
+            vehicle4.Id = 3;
             Vehicle vehicle5 = new Vehicle(1, "Leopard 6 A4", 26, sol5);
+            vehicle5.Id = 4;
 
             List<Solider> baseSols = new List<Solider>();
             List<Vehicle> baseVeh = new List<Vehicle>();

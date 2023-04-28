@@ -2,6 +2,7 @@
 using System.Xml.Xsl;
 using System.Xml;
 using TestRef1;
+using SOAPSender.Utils;
 
 namespace SOAPConsumer
 {
@@ -9,37 +10,38 @@ namespace SOAPConsumer
     {
         static async Task Main(string[] args)
         {
-            //Console.WriteLine("Hello, World!");
-            //var client = new ServiceClient(ServiceClient.EndpointConfiguration.WSHttpBinding_IService, "https://localhost:5001/Service/WSHttps");
-            //string test = await client.GetBaseByIDAsync(1);
-            //Console.WriteLine(test);
-
+            string dataDir = @"C:\jsonTest\Assets\";
+            var client = new ServiceClient(ServiceClient.EndpointConfiguration.WSHttpBinding_IService, "https://localhost:5001/Service/WSHttps");
+            Console.Write("Please enter base ID to get report: ");
+            string input = Console.ReadLine();
+            string test = await client.GetBaseByIDAsync(Convert.ToInt32(input));
+            Console.WriteLine(test);
+            FileManager.SaveFile(dataDir + "final.xml", test);
             ///
             /// PDF DEMO
             ///
-            //string dataDir = @"C:\jsonTest\testing\";
-            ////Create pdf document
-            //Aspose.Pdf.Document pdf = new Aspose.Pdf.Document();
-            ////Bind XML and XSLT files to the document
-            //try
-            //{
-            //    pdf.BindXml(dataDir + "\\mb.xml", dataDir + "\\mb1.xslt");
-            //}
-            //catch (System.Exception)
-            //{
+            //Create pdf document
+            Aspose.Pdf.Document pdf = new Aspose.Pdf.Document();
+            //Bind XML and XSLT files to the document
+            try
+            {
+                pdf.BindXml(dataDir + "\\final.xml", dataDir + "\\mbToPDF.xslt");
+            }
+            catch (System.Exception)
+            {
 
-            //    throw;
-            //}
+                throw;
+            }
 
-            ////Save the document
-            //pdf.Save(dataDir + "result.pdf");
+            // Save the document
+            pdf.Save(dataDir + "final.pdf");
 
 
             ///
             /// HTML demo
             ///
 
-            Console.WriteLine(SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\mb.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
+            FileManager.SaveFile(dataDir + "final.html",SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\mb.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
             Console.ReadKey();
         }
     }
