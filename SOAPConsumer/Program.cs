@@ -3,6 +3,7 @@ using System.Xml.Xsl;
 using System.Xml;
 using TestRef1;
 using SOAPSender.Utils;
+using System.Diagnostics;
 
 namespace SOAPConsumer
 {
@@ -41,8 +42,22 @@ namespace SOAPConsumer
             /// HTML demo
             ///
 
-            FileManager.SaveFile(dataDir + "final.html",SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\mb.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
+            FileManager.SaveFile(dataDir + "final.html", SOAPSender.XMLTools.XMLtoHTMLConverter.TransformXMLToHTML(@"C:\jsonTest\Assets\mb.xml",@"C:\jsonTest\Assets\mbToHTML.xsl"));
             Console.ReadKey();
+            new Process
+            {
+                StartInfo = new ProcessStartInfo(dataDir + "final.html")
+                {
+                    UseShellExecute = true
+                }
+            }.Start();
+            new Process
+            {
+                StartInfo = new ProcessStartInfo(dataDir + "final.pdf")
+                {
+                    UseShellExecute = true
+                }
+            }.Start();
         }
     }
 }
