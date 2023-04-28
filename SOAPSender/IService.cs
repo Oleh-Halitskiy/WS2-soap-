@@ -18,6 +18,9 @@ namespace SOAPSender
         string TestIDbase(int id);
 
         [OperationContract]
+        string GetBaseByCPTName(string name);
+
+        [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
     }
 
@@ -32,6 +35,14 @@ namespace SOAPSender
         public string GetBaseByID(int id)
         {
             var mb = DatabaseMock.GetBaseByID(id);
+            XMLSerializer serializer = new XMLSerializer();
+            serializer.SerializeObject(mb, @"C:\jsonTest\WS2\mb.xml");
+            return Utils.FileManager.SelectFile(@"C:\jsonTest\WS2\mb.xml");
+        }
+
+        public string GetBaseByCPTName(string name)
+        {
+            var mb = DatabaseMock.GetBaseByCPTName(name);
             XMLSerializer serializer = new XMLSerializer();
             serializer.SerializeObject(mb, @"C:\jsonTest\WS2\mb.xml");
             return Utils.FileManager.SelectFile(@"C:\jsonTest\WS2\mb.xml");

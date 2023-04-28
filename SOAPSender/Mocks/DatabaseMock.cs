@@ -13,15 +13,21 @@ namespace SOAPSender.Mocks
             IEnumerable<MilitaryBase> query = MilitaryBases.Where(mbase => mbase.ID == id);
             return query.First();
         }
+        public static MilitaryBase GetBaseByCPTName(string name)
+        {
+            MockDB();
+            IEnumerable<MilitaryBase> query = MilitaryBases.Where(mbase => mbase.Captain.Name == name);
+            return query.First();
+        }
         private static void MockDB()
         {
             Solider sol1 = new Solider(1, "Oleh", "Halytskyi", Enums.Rank.Major);
             sol1.Id = 0;
-            Solider sol2 = new Solider(1, "Ihor", "Haly", Enums.Rank.Captain);
+            Solider sol2 = new Solider(1, "Ihor", "Triplek", Enums.Rank.Captain);
             sol2.Id = 1;
-            Solider sol3 = new Solider(1, "Jake", "Meoff", Enums.Rank.Private);
+            Solider sol3 = new Solider(1, "Jake", "Meofv", Enums.Rank.Private);
             sol3.Id = 2;
-            Solider sol4 = new Solider(1, "Jacks", "Bee", Enums.Rank.Sergeant);
+            Solider sol4 = new Solider(1, "Jacks B.", "Be", Enums.Rank.Sergeant);
             sol4.Id = 3;
             Solider sol5 = new Solider(1, "SSee", "Shard", Enums.Rank.Major);
             sol5.Id = 4;
@@ -53,8 +59,8 @@ namespace SOAPSender.Mocks
             baseVeh.Add(vehicle5);
 
             MilitaryBase mb1 = new MilitaryBase("MAIN UKRAINE BASE", "KIEV, UA", sol1, baseSols, baseVeh);
-            MilitaryBase mb2 = new MilitaryBase("SECONDARY UKRAINE BASE", "KHARKIV, UA", sol1, baseSols, baseVeh);
-            MilitaryBase mb3 = new MilitaryBase("WEST UKRAINE BASE", "LVIV, UA", sol1, baseSols, baseVeh);
+            MilitaryBase mb2 = new MilitaryBase("SECONDARY UKRAINE BASE", "KHARKIV, UA", sol2, baseSols, baseVeh);
+            MilitaryBase mb3 = new MilitaryBase("WEST UKRAINE BASE", "LVIV, UA", sol3, baseSols, baseVeh);
             mb1.ID = 1;
             mb2.ID = 2;
             mb3.ID = 3;
